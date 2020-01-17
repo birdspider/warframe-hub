@@ -19,7 +19,12 @@ module.exports = {
   productionSourceMap: undefined,
   parallel: undefined,
   configureWebpack: {
-    plugins: [],
+    plugins: [
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      new webpack.optimize.MinChunkSizePlugin({
+        minChunkSize: 10000,
+      }),
+    ],
     resolve: {
       alias: {
         lodash: path.resolve('node_modules/lodash-es/'),
