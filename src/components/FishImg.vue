@@ -7,7 +7,7 @@
     :width="width"
     v-bind:class="{ invert: invert === 'true' }"
     fluid
-    :alt="name"
+    :alt="title"
   />
 </template>
 
