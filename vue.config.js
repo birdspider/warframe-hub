@@ -13,11 +13,6 @@ module.exports = {
   },
 
   publicPath: '/',
-  outputDir: undefined,
-  assetsDir: undefined,
-  runtimeCompiler: true,
-  productionSourceMap: undefined,
-  parallel: undefined,
   configureWebpack: {
     plugins: [
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
