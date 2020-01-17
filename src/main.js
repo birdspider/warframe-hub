@@ -56,7 +56,20 @@ Vue.use(VueAnalytics, {
 });
 
 /* Leaflet */
-import Vue2Leaflet, { L } from 'vue2-leaflet';
+import {
+  L,
+  LMap,
+  LImageOverlay,
+  LMarker,
+  LPopup,
+  LPolyline,
+  LGeoJson,
+  LTooltip,
+  LIcon,
+  LControlLayers,
+  LLayerGroup,
+  LCircleMarker,
+} from 'vue2-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 // this part resolve an issue where the markers would not appear
@@ -69,17 +82,17 @@ L.Icon.Default.mergeOptions({
 });
 
 Vue.use(L);
-Vue.component('l-map', Vue2Leaflet.LMap);
-Vue.component('l-image-overlay', Vue2Leaflet.LImageOverlay);
-Vue.component('l-marker', Vue2Leaflet.LMarker);
-Vue.component('l-popup', Vue2Leaflet.LPopup);
-Vue.component('l-polyline', Vue2Leaflet.LPolyline);
-Vue.component('l-geo-json', Vue2Leaflet.LGeoJson);
-Vue.component('l-tooltip', Vue2Leaflet.LTooltip);
-Vue.component('l-icon', Vue2Leaflet.LIcon);
-Vue.component('l-control-layers', Vue2Leaflet.LControlLayers);
-Vue.component('l-layer-group', Vue2Leaflet.LLayerGroup);
-Vue.component('l-circle-marker', Vue2Leaflet.LCircleMarker);
+Vue.component('l-map', LMap);
+Vue.component('l-image-overlay', LImageOverlay);
+Vue.component('l-marker', LMarker);
+Vue.component('l-popup', LPopup);
+Vue.component('l-polyline', LPolyline);
+Vue.component('l-geo-json', LGeoJson);
+Vue.component('l-tooltip', LTooltip);
+Vue.component('l-icon', LIcon);
+Vue.component('l-control-layers', LControlLayers);
+Vue.component('l-layer-group', LLayerGroup);
+Vue.component('l-circle-marker', LCircleMarker);
 
 /* Themes */
 import '@/assets/less/common.less';

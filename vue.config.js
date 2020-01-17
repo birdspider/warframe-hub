@@ -1,3 +1,6 @@
+const webpack = require('webpack');
+const path = require('path');
+
 module.exports = {
   pwa: {
     name: 'Warframe Hub',
@@ -17,6 +20,11 @@ module.exports = {
   parallel: undefined,
   configureWebpack: {
     plugins: [],
+    resolve: {
+      alias: {
+        lodash: path.resolve('node_modules/lodash-es/'),
+      },
+    },
   },
   css: {
     sourceMap: true,

@@ -74,7 +74,7 @@ import { mapState, mapGetters } from 'vuex';
 import platforms from '@/assets/json/platforms.json';
 
 import fetch from 'node-fetch';
-import _ from 'lodash';
+import { mapValues, groupBy, omit } from 'lodash';
 
 const repoBaseUrl =
   process.env.NODE_ENV === 'production' ? 'https://n9e5v4d8.ssl.hwcdn.net' : 'http://n9e5v4d8.ssl.hwcdn.net';
@@ -135,11 +135,11 @@ export default {
     async getdata() {
       const res = JSON.parse((await fetch(this.url).then((res) => res.text())).replace(/NaN/g, 0));
 
-      const rivenData = _.mapValues(_.groupBy(res, 'itemType'), (clist) => clist.map((car) => _.omit(car, 'itemType')));
+      const rivenData = mapValues(groupBy(res, 'itemType'), (clist) => clist.map((car) => omit(car, 'itemType')));
 
       Object.keys(rivenData).forEach((key) => {
-        rivenData[key] = _.mapValues(_.groupBy(rivenData[key], 'compatibility'), (clist2) =>
-          clist2.map((car1) => _.omit(car1, 'compatibility'))
+        rivenData[key] = mapValues(groupBy(rivenData[key], 'compatibility'), (clist2) =>
+          clist2.map((car1) => omit(car1, 'compatibility'))
         );
       });
       this.data = rivenData;
