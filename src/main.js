@@ -47,7 +47,13 @@ Vue.use(Notifications);
 
 /* Analytics */
 import VueAnalytics from 'vue-analytics';
-Vue.use(VueAnalytics, { id: 'UA-47080716-6' });
+Vue.use(VueAnalytics, {
+  id: 'UA-47080716-6',
+  set: [{ field: 'anonymizeIp', value: 'true' }],
+  // honor DNT
+  disabled: navigator.doNotTrack === '1',
+  disableScriptLoader: navigator.doNotTrack === '1',
+});
 
 /* Leaflet */
 import Vue2Leaflet, { L } from 'vue2-leaflet';
