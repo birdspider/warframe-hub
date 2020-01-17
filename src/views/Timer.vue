@@ -1,7 +1,7 @@
 <template>
   <div class="timers">
     <b-container fluid class="grid">
-      <b-row ref="timerComponentGrid" v-packery="{ itemSelector: '.packery-item', percentPosition: true }">
+      <vueBinpacker>
         <timer v-if="componentState.earth.display" :time="worldstate.earthCycle" location="Earth" />
         <timer v-if="componentState.cetus.display" :time="worldstate.cetusCycle" location="Cetus" />
         <timer v-if="componentState.vallis.display" :time="worldstate.vallisCycle" location="Vallis" />
@@ -26,7 +26,7 @@
         <bounty v-if="componentState['solaris-bounties'].display" :syndicate="solaris" type="Solaris United" />
         <sales v-if="componentState.deals.display" :sales="worldstate.flashSales" />
         <void-trader v-if="componentState.baro.display" :voidTrader="worldstate.voidTrader" />
-      </b-row>
+      </vueBinpacker>
     </b-container>
   </div>
 </template>
